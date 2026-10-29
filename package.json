@@ -1,0 +1,18 @@
+{
+  "name": "resume-builder",
+  "version": "1.0.0",
+  "description": "A beginner-friendly full-stack resume builder using HTML, CSS, JavaScript, Express and Supabase PostgreSQL",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.0.0",
+    "dotenv": "^16.0.0",
+    "express": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}

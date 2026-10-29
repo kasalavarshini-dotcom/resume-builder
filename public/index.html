@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create, save and print your professional resume.">
+  <title>ResumeCraft | Resume Builder</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a href="/" class="brand">Resume<span>Craft.</span></a>
+    <div class="header-actions">
+      <span class="status-dot">Free Resume Builder</span>
+      <button type="button" id="newBtn" class="btn btn-light">+ New Resume</button>
+    </div>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">YOUR CAREER STARTS HERE</p>
+        <h1>Build a resume that <span>opens doors.</span></h1>
+        <p class="subtitle">Add your details, preview your resume, and save a professional copy.</p>
+      </div>
+    </section>
+    <div id="message" class="message" role="status" aria-live="polite"></div>
+    <div class="workspace">
+      <section class="panel editor-panel">
+        <div class="panel-heading">
+          <div><p class="eyebrow">RESUME EDITOR</p><h2>Your details</h2></div>
+          <span class="step-badge">01 / 02</span>
+        </div>
+        <form id="resumeForm">
+          <input type="hidden" id="resumeId">
+          <fieldset>
+            <legend>Personal information</legend>
+            <div class="form-grid">
+              <label class="full">Full name *
+                <input name="full_name" required maxlength="120" placeholder="e.g. Your Name">
+              </label>
+              <label>Email address
+                <input name="email" type="email" maxlength="254" placeholder="you@example.com">
+              </label>
+              <label>Phone number
+                <input name="phone" type="tel" maxlength="100" placeholder="+91 98765 43210">
+              </label>
+              <label class="full">City / Location
+                <input name="location" maxlength="200" placeholder="Hyderabad, Telangana">
+              </label>
+              <label class="full">LinkedIn / Portfolio
+                <input name="linkedin" maxlength="500" placeholder="linkedin.com/in/your-profile">
+              </label>
+            </div>
+          </fieldset>
+          <fieldset><legend>Professional summary</legend>
+            <label>Career objective
+              <textarea name="objective" rows="4" maxlength="10000" placeholder="Write 2–3 sentences about your goals and strengths."></textarea>
+            </label>
+          </fieldset>
+          <fieldset><legend>Education</legend>
+            <label>Education details
+              <textarea name="education" rows="4" maxlength="10000" placeholder="B.Tech ECE | College name&#10;2026–2030 | CGPA (if available)"></textarea>
+            </label>
+          </fieldset>
+          <fieldset><legend>Skills</legend>
+            <label>Technical and soft skills
+              <textarea name="skills" rows="3" maxlength="10000" placeholder="C, HTML, CSS, JavaScript, Communication"></textarea>
+            </label>
+          </fieldset>
+          <fieldset><legend>Projects</legend>
+            <label>Academic or personal projects
+              <textarea name="projects" rows="4" maxlength="10000" placeholder="Project name&#10;What you built and the tools used"></textarea>
+            </label>
+          </fieldset>
+          <fieldset><legend>Experience</legend>
+            <label>Internships, volunteering or experience
+              <textarea name="experience" rows="4" maxlength="10000" placeholder="Add relevant experience, or leave blank if you are a fresher."></textarea>
+            </label>
+          </fieldset>
+          <div class="form-actions">
+            <button type="submit" id="saveBtn" class="btn btn-primary">Save Resume</button>
+            <button type="button" id="clearBtn" class="btn btn-light">Clear Form</button>
+          </div>
+        </form>
+        <p class="privacy-note">Your resume contains personal information. Use this local demo only with information you are comfortable storing in your database.</p>
+      </section>
+      <section class="preview-column">
+        <div class="preview-toolbar">
+          <div><p class="eyebrow">LIVE PREVIEW</p><h2>Your resume</h2></div>
+          <button type="button" id="printBtn" class="btn btn-primary">Print / Save PDF</button>
+        </div>
+        <article id="resumePreview" class="resume-paper">
+          <div class="resume-header">
+            <h1 id="p-name">Your Name</h1>
+            <p id="p-contact" class="contact-line">Email · Phone · Location</p>
+            <p id="p-link" class="contact-line"></p>
+          </div>
+          <section class="resume-section" id="objectiveSection"><h3>PROFILE</h3><p id="p-objective" class="resume-text">Your career objective will appear here.</p></section>
+          <section class="resume-section" id="educationSection"><h3>EDUCATION</h3><p id="p-education" class="resume-text"></p></section>
+          <section class="resume-section" id="skillsSection"><h3>SKILLS</h3><p id="p-skills" class="resume-text"></p></section>
+          <section class="resume-section" id="projectsSection"><h3>PROJECTS</h3><p id="p-projects" class="resume-text"></p></section>
+          <section class="resume-section" id="experienceSection"><h3>EXPERIENCE</h3><p id="p-experience" class="resume-text"></p></section>
+          <p class="resume-footer">RESUME · CREATED WITH RESUMECRAFT</p>
+        </article>
+        <section class="panel saved-panel">
+          <div class="panel-heading">
+            <div><p class="eyebrow">YOUR LIBRARY</p><h2>Saved resumes</h2></div>
+            <button type="button" id="refreshBtn" class="btn btn-light">Refresh</button>
+          </div>
+          <div id="savedList" class="saved-list"><p class="empty-state">Loading saved resumes…</p></div>
+        </section>
+      </section>
+    </div>
+    <footer class="footer"><p>ResumeCraft · Built with HTML, CSS, JavaScript, Node.js &amp; Supabase</p></footer>
+  </main>
+</body>
+</html>
